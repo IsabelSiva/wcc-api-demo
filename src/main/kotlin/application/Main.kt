@@ -58,6 +58,14 @@ fun main(){
             )
             ctx.status(204)
         }
+        //TODO DESAFIO 04
+        //criar uma rota como /location/planet/{planet-id}
+        //buscar esse planeta no location retornar o resultado
+        get("/locations/planet/{name}") { ctx ->
+            val nomePlaneta = ctx.pathParam("name")
+            ctx.json(locationDao.findByPlanet(nomePlaneta)!!)
+            ctx.status(200)
+        }
 
     }
 
